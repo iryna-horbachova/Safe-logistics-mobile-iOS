@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  SafeLogistics
-//
-//  Created by Iryna Horbachova on 10.11.2020.
-//
-
 import UIKit
 
 @main
