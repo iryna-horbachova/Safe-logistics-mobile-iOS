@@ -16,6 +16,10 @@
 		893FFE30255B17ED009A61ED /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FFE2F255B17ED009A61ED /* RoutesViewController.swift */; };
 		89536749257AB13B00BF2E2A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89536748257AB13B00BF2E2A /* Route.swift */; };
 		8953674C257AB32500BF2E2A /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953674B257AB32500BF2E2A /* Profile.swift */; };
+		8953674F257AD60100BF2E2A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953674E257AD60100BF2E2A /* APIError.swift */; };
+		89536752257AD8D400BF2E2A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89536751257AD8D400BF2E2A /* SignInViewController.swift */; };
+		89536756257AD91600BF2E2A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89536755257AD91600BF2E2A /* Extensions.swift */; };
+		89536759257AD97800BF2E2A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89536758257AD97800BF2E2A /* Constants.swift */; };
 		896F58B5257A6B1700785DA8 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F58B4257A6B1700785DA8 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +35,10 @@
 		893FFE2F255B17ED009A61ED /* RoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
 		89536748257AB13B00BF2E2A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8953674B257AB32500BF2E2A /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		8953674E257AD60100BF2E2A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		89536751257AD8D400BF2E2A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		89536755257AD91600BF2E2A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		89536758257AD97800BF2E2A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		896F58B4257A6B1700785DA8 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +72,7 @@
 		893FFE12255B1766009A61ED /* SafeLogistics */ = {
 			isa = PBXGroup;
 			children = (
+				89536754257AD90600BF2E2A /* UIComponents */,
 				896F58B9257A6B8500785DA8 /* Routes */,
 				896F58B8257A6B7000785DA8 /* Profile */,
 				896F58B3257A6B0B00785DA8 /* API */,
@@ -73,6 +82,15 @@
 				893FFE21255B1769009A61ED /* Info.plist */,
 			);
 			path = SafeLogistics;
+			sourceTree = "<group>";
+		};
+		89536754257AD90600BF2E2A /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				89536755257AD91600BF2E2A /* Extensions.swift */,
+				89536758257AD97800BF2E2A /* Constants.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		896F58B2257A6AFA00785DA8 /* App */ = {
@@ -89,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				896F58B4257A6B1700785DA8 /* APIManager.swift */,
+				8953674E257AD60100BF2E2A /* APIError.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -98,6 +117,7 @@
 			children = (
 				893FFE2C255B17D9009A61ED /* ProfileViewController.swift */,
 				8953674B257AB32500BF2E2A /* Profile.swift */,
+				89536751257AD8D400BF2E2A /* SignInViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -188,6 +208,10 @@
 				893FFE2D255B17D9009A61ED /* ProfileViewController.swift in Sources */,
 				89536749257AB13B00BF2E2A /* Route.swift in Sources */,
 				896F58B5257A6B1700785DA8 /* APIManager.swift in Sources */,
+				89536752257AD8D400BF2E2A /* SignInViewController.swift in Sources */,
+				89536756257AD91600BF2E2A /* Extensions.swift in Sources */,
+				8953674F257AD60100BF2E2A /* APIError.swift in Sources */,
+				89536759257AD97800BF2E2A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

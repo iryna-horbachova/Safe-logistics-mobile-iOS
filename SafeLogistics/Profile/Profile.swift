@@ -33,3 +33,10 @@ struct HealthState: Codable {
   
   let datetime: String
 }
+
+struct Token: Codable {
+  let email: String
+  let userId: Int
+  let token: String
+}
+
