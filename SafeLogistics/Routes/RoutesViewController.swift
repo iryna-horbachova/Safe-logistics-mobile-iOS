@@ -6,7 +6,17 @@ class RoutesViewController: UIViewController {
     super.viewDidLoad()
     
     title = "Routes"
-    // Do any additional setup after loading the view.
+    
+    APIManager.shared.getDriversArray { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let drivers):
+        print(drivers)
+      case .failure(let error):
+        print("error")
+        print(error)
+      }
+    }
   }
   
 }

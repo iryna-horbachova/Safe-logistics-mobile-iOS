@@ -31,18 +31,17 @@ class APIManager {
     headers["Content-Type"] = "application/json"
     request.allHTTPHeaderFields = headers
     
-    do {
-      let json: [String: Any] = ["username": email,
-                                 "password": password]
-
-      let jsonData = try? JSONSerialization.data(withJSONObject: json)
-      request.httpBody = jsonData //httpBody
-    } catch {
-      print("invalid request body")
-    }
+    let json: [String: Any] = ["username": email,
+                               "password": password]
+    
+    let jsonData = try? JSONSerialization.data(withJSONObject: json)
+    request.httpBody = jsonData //httpBody
+    
 
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
       
+      print("login")
+      print(String(decoding: data!, as: UTF8.self))
       if let _ = error {
         print("got an error from the server")
         completion(.unableToComplete)
@@ -69,14 +68,14 @@ class APIManager {
         let receivedToken = try decoder.decode(Token.self, from: data)
         APIManager.shared.token = receivedToken.token
         APIManager.shared.getDriverInfo(id: receivedToken.userId) { [weak self] result in
-          guard let self = self else { return }
+          guard self != nil else { return }
           switch result {
           case .success(let driver):
             DispatchQueue.main.async {
               APIManager.currentDriver = driver
               completion(nil)
             }
-          case .failure(let error):
+          case .failure(let _):
             completion(.invalidData)
             
           }
@@ -92,6 +91,58 @@ class APIManager {
         print("invalid decoder")
         completion(.invalidData)
       }
+    }
+    task.resume()
+  }
+  
+  func logout(
+    completion: @escaping (APIError?) -> ()
+  ) {
+    let endpoint = baseURL + "users/logout/"
+    //let group = DispatchGroup()
+    //group.enter()
+    
+    guard let url = URL(string: endpoint) else {
+      print("invalid url")
+      completion(.invalidData)
+        return
+    }
+    var request = URLRequest(url: url)
+    request.httpMethod = "GET"
+    request.setValue("Token: \(token!)", forHTTPHeaderField:"Authorization")
+    
+    var headers = request.allHTTPHeaderFields ?? [:]
+    headers["Content-Type"] = "application/json"
+    request.allHTTPHeaderFields = headers
+    
+
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+      
+      print("logout")
+      print(String(decoding: data!, as: UTF8.self))
+      
+      if let _ = error {
+        print("got an error from the server")
+        completion(.unableToComplete)
+        return
+      }
+
+      guard let response = response as? HTTPURLResponse,
+        200 == response.statusCode else {
+        print("invalid response")
+        completion(.invalidResponse)
+        return
+      }
+      
+      guard let data = data else {
+        print("invalid data")
+        completion(.invalidData)
+        return
+      }
+      
+      APIManager.currentDriver = nil
+      APIManager.shared.token = nil
+      completion(nil)
     }
     task.resume()
   }
@@ -112,6 +163,8 @@ class APIManager {
     request.setValue("Token: \(token!)", forHTTPHeaderField:"Authorization")
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
+      print("driver")
+      print(String(decoding: data!, as: UTF8.self))
       
       if let _ = error {
         completion(.failure(.unableToComplete))
@@ -132,6 +185,8 @@ class APIManager {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let user = try decoder.decode(Driver.self, from: data)
+        print("decoded")
+        print(user)
         completion(.success(user))
       } catch {
         completion(.failure(.invalidData))
@@ -144,7 +199,7 @@ class APIManager {
   func getDesignatedRoutesArray(
     completion: @escaping designatedRoutesCompletionHandler
   ) {
-    let endpoint = baseURL + "routes/designated/"
+    let endpoint = baseURL + "routes/designated/driver/"
     
     guard let url = URL(string: endpoint) else {
       completion(.failure(.invalidData))
@@ -154,6 +209,11 @@ class APIManager {
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
     request.setValue("Token \(token!)", forHTTPHeaderField:"Authorization")
+    
+    let json: [String: Any] = ["driver_id": APIManager.currentDriver!.user.id]
+    
+    let jsonData = try? JSONSerialization.data(withJSONObject: json)
+    request.httpBody = jsonData
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
 
@@ -175,9 +235,9 @@ class APIManager {
       do {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let participants = try decoder.decode([DesignatedRoute].self, from: data)
-        print(participants)
-        completion(.success(participants))
+        let dRoutes = try decoder.decode([DesignatedRoute].self, from: data)
+        print(dRoutes)
+        completion(.success(dRoutes))
       } catch {
         completion(.failure(.invalidData))
       }

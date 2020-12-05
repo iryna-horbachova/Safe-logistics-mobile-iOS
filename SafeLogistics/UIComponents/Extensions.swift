@@ -94,3 +94,38 @@ extension UIAlertController {
     return alertController
   }
 }
+
+extension UILabel {
+  static func makeTitleLabel() -> UILabel {
+    let label = UILabel()
+    label.font = .boldSystemFont(ofSize: 18)
+    label.textColor = .label
+    label.minimumScaleFactor = 0.9
+    label.adjustsFontSizeToFitWidth   = true
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+  }
+  
+  static func makeSecondaryLabel() -> UILabel {
+    let label = UILabel()
+    label.textColor = .secondaryLabel
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.90
+    label.lineBreakMode = .byTruncatingTail
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+  }
+  
+  static func makeBodyLabel() -> UILabel {
+    let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .body)
+    label.textColor = .secondaryLabel
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.75
+    label.lineBreakMode = .byWordWrapping
+    label.numberOfLines = 0
+    label.sizeToFit()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+  }
+}

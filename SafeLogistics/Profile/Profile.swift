@@ -16,7 +16,6 @@ struct Driver: Codable {
   let experience: Int
   let healthState: Int
   let licenseType: String
-  //manager: 1
   let payForKm: Int
 }
 
