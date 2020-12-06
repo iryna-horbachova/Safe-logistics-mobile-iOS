@@ -46,6 +46,8 @@ class RoutesViewController: UIViewController {
       }
     }
     
+    currentDesignatedRouteView.checkRouteButton.addTarget(self, action: #selector(showCurrentRouteVC), for: .touchUpInside)
+    
     tableView.translatesAutoresizingMaskIntoConstraints = false
     currentDesignatedRouteView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(currentDesignatedRouteView)
@@ -59,7 +61,7 @@ class RoutesViewController: UIViewController {
     NSLayoutConstraint.activate(
       [
         currentDesignatedRouteView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-        currentDesignatedRouteView.heightAnchor.constraint(equalToConstant: 140),
+        currentDesignatedRouteView.heightAnchor.constraint(equalToConstant: 160),
         //stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 30),
         currentDesignatedRouteView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
         currentDesignatedRouteView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -69,6 +71,10 @@ class RoutesViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
       ]
     )
+  }
+  
+  @objc private func showCurrentRouteVC(sender: UIButton!) {
+    navigationController?.pushViewController(CurrentRouteViewController(), animated: true)
   }
 }
 

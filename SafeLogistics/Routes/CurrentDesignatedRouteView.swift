@@ -15,9 +15,9 @@ class CurrentDesignatedRouteView: UIView {
   }
   
   private let yourRouteLabel = UILabel.makeTitleLabel()
-  private let routeTitleLabel = UILabel.makeSecondaryLabel()
-  private let statusLabel = UILabel.makeSecondaryLabel()
-  private let checkRouteButton = UIButton.makeSecondaryButton(title: "Check route")
+  private let routeTitleLabel = UILabel.makeBlackSecondaryLabel()
+  private let statusLabel = UILabel.makeBlackSecondaryLabel()
+  public let checkRouteButton = UIButton.makeSecondaryButton(title: "Check route")
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -59,7 +59,8 @@ class CurrentDesignatedRouteView: UIView {
   }
   
   private func configure() {
-    backgroundColor = .systemBackground
+    backgroundColor = UIColor(patternImage: UIImage(named: "route")!)
+    //backgroundColor = .systemBackground
     addSubview(statusLabel)
     addSubview(routeTitleLabel)
     addSubview(yourRouteLabel)
@@ -74,6 +75,7 @@ class CurrentDesignatedRouteView: UIView {
       statusLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
       checkRouteButton.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 5),
       checkRouteButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+      checkRouteButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
     ])
   }
 }

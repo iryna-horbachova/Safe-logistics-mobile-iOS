@@ -49,10 +49,11 @@ extension UIButton {
   
   static func makeSecondaryButton(title: String) -> UIButton {
     let button = UIButton()
-    button.tintColor = .mainTheme
+    //button.tintColor = .mainTheme
+    button.backgroundColor = .mainTheme
     button.titleLabel?.font =  .preferredFont(forTextStyle: .title2)
     button.setTitle(title, for: .normal)
-    button.setTitleColor(.mainTheme, for: .normal)
+    //button.setTitleColor(.mainTheme, for: .normal)
     button.layer.cornerRadius = CORNER_RADIUS
     button.translatesAutoresizingMaskIntoConstraints = false
     return button
@@ -106,6 +107,12 @@ extension UILabel {
     return label
   }
   
+  static func makeBlackSecondaryLabel() -> UILabel {
+    let label = UILabel.makeSecondaryLabel()
+    label.textColor = .black
+    return label
+  }
+  
   static func makeSecondaryLabel() -> UILabel {
     let label = UILabel()
     label.textColor = .secondaryLabel
@@ -113,6 +120,7 @@ extension UILabel {
     label.minimumScaleFactor = 0.90
     label.lineBreakMode = .byTruncatingTail
     label.translatesAutoresizingMaskIntoConstraints = false
+    label.textColor = .label
     return label
   }
   
