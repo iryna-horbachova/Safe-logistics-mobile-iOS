@@ -20,7 +20,6 @@ class ProfileViewController: UIViewController {
   let cellIdentifier = "userProfileOption"
   let options = ["Check health", "Change language", "Log out"]
   
- // let checkHealthButton = UIButton.makeSecondaryButton(title: "Check health state")
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -33,7 +32,6 @@ class ProfileViewController: UIViewController {
     labels.forEach {
       stackView.addArrangedSubview($0)
     }
-   // stackView.addArrangedSubview(checkHealthButton)
     
     nameLabel.text = NSLocalizedString(
       "NAME_LABEL",
@@ -80,7 +78,7 @@ class ProfileViewController: UIViewController {
         //stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 30),
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: PADDING),
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -PADDING),
-        tableView.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+        tableView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 30),
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -91,9 +89,9 @@ class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController: UITableViewDelegate {
-  /*func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    20
-  }*/
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    40
+  }
 }
 
 extension ProfileViewController: UITableViewDataSource {
@@ -138,5 +136,20 @@ extension ProfileViewController: UITableViewDataSource {
     default:
       print("not implemented :)))")
     }
+  }
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    1
+  }
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return "Options"
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    guard let header = view as? UITableViewHeaderFooterView else { return }
+    header.backgroundColor = .systemBackground
+    header.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+    header.textLabel?.frame = header.frame
   }
 }

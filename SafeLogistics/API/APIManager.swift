@@ -77,9 +77,8 @@ class APIManager {
               APIManager.currentDriver = driver
               completion(nil)
             }
-          case .failure(let _):
+          case .failure( _):
             completion(.invalidData)
-            
           }
         }
         //UserDefaults.standard.set(receivedToken.access, forKey: "accessToken")
@@ -136,7 +135,7 @@ class APIManager {
         return
       }
       
-      guard let data = data else {
+      guard data != nil else {
         print("invalid data")
         completion(.invalidData)
         return

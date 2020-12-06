@@ -7,22 +7,25 @@ class RoutesViewController: UIViewController {
       tableView.reloadData()
     }
   }
+  
   var currentDesignatedRoute: DesignatedRoute? {
     didSet {
       if currentDesignatedRoute != nil {
-        
+        currentDesignatedRouteView.status = currentDesignatedRoute!.status
+        currentDesignatedRouteView.routeTitle = currentDesignatedRoute!.route.title
       }
     }
   }
   
-  var currentDesignatedRouteView = UIView()
-  let tableView = UITableView()
-  let cellIdentifier = "routeTableViewCell"
+  private var currentDesignatedRouteView = CurrentDesignatedRouteView(status: "F", routeTitle: nil)
+  private let tableView = UITableView()
+  private let cellIdentifier = "routeTableViewCell"
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     title = "Routes"
+    view.backgroundColor = .systemBackground
     
     // API management
     
@@ -36,21 +39,15 @@ class RoutesViewController: UIViewController {
           if self.currentDesignatedRoute != nil {
             self.designatedRoutes.removeAll { $0.status != "F" }
           }
-          print("*********************current designated")
-          print(self.currentDesignatedRoute)
-          print(dRoutes)
         }
       case .failure(let error):
         print("error")
         print(error)
       }
     }
-
-    
-    //designatedRoutes.remove(currentDesignatedRoute)
-    
     
     tableView.translatesAutoresizingMaskIntoConstraints = false
+    currentDesignatedRouteView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(currentDesignatedRouteView)
     view.addSubview(tableView)
     
@@ -61,11 +58,12 @@ class RoutesViewController: UIViewController {
     
     NSLayoutConstraint.activate(
       [
-        //currentDesignatedRouteView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+        currentDesignatedRouteView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+        currentDesignatedRouteView.heightAnchor.constraint(equalToConstant: 140),
         //stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 30),
-        //currentDesignatedRouteView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: PADDING),
-        //currentDesignatedRouteView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -PADDING),
-        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+        currentDesignatedRouteView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        currentDesignatedRouteView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        tableView.topAnchor.constraint(equalTo: currentDesignatedRouteView.bottomAnchor),
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -75,9 +73,6 @@ class RoutesViewController: UIViewController {
 }
 
 extension RoutesViewController: UITableViewDelegate {
-  /*func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    20
-  }*/
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     40
   }
