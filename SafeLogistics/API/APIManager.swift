@@ -33,10 +33,12 @@ class APIManager {
     
     let json: [String: Any] = ["username": email,
                                "password": password]
+    print(json)
+    
     
     let jsonData = try? JSONSerialization.data(withJSONObject: json)
     request.httpBody = jsonData //httpBody
-    
+    print(String(decoding: request.httpBody!, as: UTF8.self))
 
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
       
@@ -208,15 +210,13 @@ class APIManager {
 
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
-    request.setValue("Token \(token!)", forHTTPHeaderField:"Authorization")
-    
-    let json: [String: Any] = ["driver_id": APIManager.currentDriver!.user.id]
-    
-    let jsonData = try? JSONSerialization.data(withJSONObject: json)
-    request.httpBody = jsonData
+    request.setValue("Token \(token!)", forHTTPHeaderField: "Authorization")
+    request.setValue("\(APIManager.currentDriver!.user.id)", forHTTPHeaderField: "Driver")
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
 
+      print("d_routes")
+      print(String(decoding: data!, as: UTF8.self))
       if let _ = error {
         completion(.failure(.unableToComplete))
         return

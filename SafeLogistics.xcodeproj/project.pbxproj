@@ -15,6 +15,7 @@
 		893FFE2D255B17D9009A61ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FFE2C255B17D9009A61ED /* ProfileViewController.swift */; };
 		893FFE30255B17ED009A61ED /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FFE2F255B17ED009A61ED /* RoutesViewController.swift */; };
 		894A93BB257BB60900CE893B /* ProfileOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A93BA257BB60900CE893B /* ProfileOptionTableViewCell.swift */; };
+		894A93BE257D12A100CE893B /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A93BD257D12A100CE893B /* RouteTableViewCell.swift */; };
 		89536749257AB13B00BF2E2A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89536748257AB13B00BF2E2A /* Route.swift */; };
 		8953674C257AB32500BF2E2A /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953674B257AB32500BF2E2A /* Profile.swift */; };
 		8953674F257AD60100BF2E2A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953674E257AD60100BF2E2A /* APIError.swift */; };
@@ -35,6 +36,7 @@
 		893FFE2C255B17D9009A61ED /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		893FFE2F255B17ED009A61ED /* RoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
 		894A93BA257BB60900CE893B /* ProfileOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionTableViewCell.swift; sourceTree = "<group>"; };
+		894A93BD257D12A100CE893B /* RouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewCell.swift; sourceTree = "<group>"; };
 		89536748257AB13B00BF2E2A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8953674B257AB32500BF2E2A /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		8953674E257AD60100BF2E2A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			children = (
 				893FFE2F255B17ED009A61ED /* RoutesViewController.swift */,
 				89536748257AB13B00BF2E2A /* Route.swift */,
+				894A93BD257D12A100CE893B /* RouteTableViewCell.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				896F58B5257A6B1700785DA8 /* APIManager.swift in Sources */,
 				89536752257AD8D400BF2E2A /* SignInViewController.swift in Sources */,
 				89536756257AD91600BF2E2A /* Extensions.swift in Sources */,
+				894A93BE257D12A100CE893B /* RouteTableViewCell.swift in Sources */,
 				8953674F257AD60100BF2E2A /* APIError.swift in Sources */,
 				89536759257AD97800BF2E2A /* Constants.swift in Sources */,
 			);
