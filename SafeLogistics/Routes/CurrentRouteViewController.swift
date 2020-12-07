@@ -7,7 +7,7 @@ class CurrentRouteViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "Current route"
+    title = NSLocalizedString("Current route", comment: "Current route")
     
     mapView.delegate = self
     mapView.translatesAutoresizingMaskIntoConstraints = false

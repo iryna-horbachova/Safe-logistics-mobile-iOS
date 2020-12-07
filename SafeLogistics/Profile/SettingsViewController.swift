@@ -18,19 +18,13 @@ class SettingsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    title = "Settings"
+    title = NSLocalizedString("Settings", comment: "Settings")
     view.backgroundColor = .systemBackground
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(savePreferences))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Save", comment: "Save"),
+                                                        style: .plain, target: self,
+                                                        action: #selector(savePreferences))
     
-    languageLabel.text = "Language"
-    let languagePlaceholderString = NSLocalizedString(
-      "LANGUAGE_TEXTFIELD",
-      value: "Language",
-      comment: "Language textfield")
-    languageTextField.attributedPlaceholder = NSAttributedString(
-      string: languagePlaceholderString,
-      attributes:[NSAttributedString.Key.foregroundColor: UIColor.mainTheme]
-    )
+    languageLabel.text = NSLocalizedString("Language", comment: "Language") 
     languageTextField.inputView = languagePickerView
     
     let stackView = UIStackView.makeVerticalStackView()
@@ -57,8 +51,8 @@ class SettingsViewController: UIViewController {
   @objc private func savePreferences() {
     present(
       UIAlertController.alertWithOKAction(
-        title: "Successfully applied preferences!",
-        message: "SafeLogistics updated your settings."),
+        title: NSLocalizedString("Success", comment: "Success"),
+        message: NSLocalizedString("Your information was updated", comment: "Your information was updated")),
       animated: true,
       completion: nil
     )

@@ -19,7 +19,8 @@ class HealthStateViewController: UIViewController {
   private let bloodOxygenLevelLabel = UILabel.makeSecondaryLabel()
   private let bloodAlcoholContentLabel = UILabel.makeSecondaryLabel()
   private let bloodDrugsContentLabel = UILabel.makeSecondaryLabel()
-  private let measureHealthButton = UIButton.makeSecondaryButton(title: "Measure health")
+  private let measureHealthButton = UIButton.makeSecondaryButton(title: NSLocalizedString("Measure health state",
+                                                                                          comment: "Measure health"))
   
   lazy var labels = [heartRateLabel, bodyTemperatureLabel, respirationRatePerMinuteLabel,
                      bloodPressureSystolicLabel, bloodPressureDiastolicLabel, bloodOxygenLevelLabel,
@@ -29,7 +30,7 @@ class HealthStateViewController: UIViewController {
     super.viewDidLoad()
     
     view.backgroundColor = .systemBackground
-    title = "Health state"
+    title = NSLocalizedString("Health state", comment: "Health state")
     setHealthStateLabel()
     measureHealthButton.addTarget(self, action: #selector(measureHealthButtonClicked), for: .touchUpInside)
     
@@ -55,45 +56,31 @@ class HealthStateViewController: UIViewController {
   }
   
   private func setHealthStateLabel() {
-    heartRateLabel.text = NSLocalizedString(
-      "HEART_RATE_LABEL",
-      value: "Heart rate: \(healthState.heart_rate)",
-      comment: "Heart rate label")
-    bodyTemperatureLabel.text = NSLocalizedString(
-      "BODY_TEMPERATURE_LABEL",
-      value: "Body temperature: \(healthState.bodyTemperature)",
-      comment: "Body temperature label")
-    respirationRatePerMinuteLabel.text = NSLocalizedString(
-      "RESPIRATION_RATE_PER_MINUTE_LABEL",
-      value: "Respiration rate per minute: \(healthState.respirationRatePerMinute)",
-      comment: "Respiration rate per minute label")
-    bloodPressureSystolicLabel.text = NSLocalizedString(
-      "BLOOD_PRESSURE_SYSTOLIC_LABEL",
-      value: "Blood pressure systolic: \(healthState.bloodPressureSystolic)",
-      comment: "Blood pressure systolic label")
-    bloodPressureDiastolicLabel.text = NSLocalizedString(
-      "BLOOD_PRESSURE_DIASTOLIC_LABEL",
-      value: "Blood pressure diastolic: \(healthState.bloodPressureDiastolic)",
-      comment: "Blood pressure diastolic label")
-    bloodOxygenLevelLabel.text = NSLocalizedString(
-      "BLOOD_OXYGEN_LABEL",
-      value: "Blood oxygen: \(healthState.bloodOxygenLevel)",
-      comment: "Blood oxygen label")
-    bloodAlcoholContentLabel.text = NSLocalizedString(
-      "BLOOD_ALCOHOL_CONTENT_LABEL",
-      value: "Blood alcohol content: \(healthState.bloodAlcoholContent)",
-      comment: "Blood alcohol content label")
-    bloodDrugsContentLabel.text = NSLocalizedString(
-      "BLOOD_DRUGS_CONTENT_LABEL",
-      value: "Blood drugs content: \(healthState.bloodDrugsContent)",
-      comment: "Blood drugs content label")
+    heartRateLabel.text = NSLocalizedString("Heart rate", comment: "Heart rate")
+      + " \(healthState.heart_rate)"
+    bodyTemperatureLabel.text = NSLocalizedString("Body temperature", comment: "Body temperature")
+      + ": \(healthState.bodyTemperature)"
+    respirationRatePerMinuteLabel.text = NSLocalizedString("Respiration rate per minute", comment: "Respiration rate per minute")
+      + ": \(healthState.respirationRatePerMinute)"
+    bloodPressureSystolicLabel.text = NSLocalizedString("Blood pressure systolic", comment: "Blood pressure systolic")
+      + ": \(healthState.bloodPressureSystolic)"
+    bloodPressureDiastolicLabel.text = NSLocalizedString("Blood pressure diastolic", comment: "Blood pressure diastolic")
+      + ": \(healthState.bloodPressureDiastolic)"
+    bloodOxygenLevelLabel.text = NSLocalizedString("Blood oxygen", comment: "Blood oxygen")
+      + ": \(healthState.bloodOxygenLevel)"
+    bloodAlcoholContentLabel.text = NSLocalizedString("Blood alcohol content", comment: "Blood alcohol content")
+      + ": \(healthState.bloodAlcoholContent)"
+    bloodDrugsContentLabel.text = NSLocalizedString("Blood drugs content", comment: "Blood drugs content")
+      + ": \(healthState.bloodDrugsContent)"
   }
   
   @objc private func measureHealthButtonClicked(_ sender: UIButton!) {
     present(
       UIAlertController.alertWithOKAction(
-        title: "You measured your health state!",
-        message: "The data in your profile has been updated"),
+        title: NSLocalizedString("You measured your health state!",
+                                 comment: "You measured your health state!"),
+        message: NSLocalizedString("Your information was updated",
+                                   comment: "Your information was updated")),
       animated: true,
       completion: nil
     )

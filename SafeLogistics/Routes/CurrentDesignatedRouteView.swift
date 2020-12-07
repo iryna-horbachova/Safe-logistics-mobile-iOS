@@ -39,22 +39,23 @@ class CurrentDesignatedRouteView: UIView {
   private func updateView() {
     switch self.status {
     case "N":
-      statusLabel.text = "Status: Not started"
+      statusLabel.text = NSLocalizedString("Status: Not started", comment: "Status: Not started") 
       break
     case "I":
-      statusLabel.text = "Status: In progress"
+      statusLabel.text = NSLocalizedString("Status: In progress", comment: "Status: In progress") 
       break
     default:
-      yourRouteLabel.text = "You don't have any routes at the moment"
-      statusLabel.text = "Wait for new assignment"
+      yourRouteLabel.text = NSLocalizedString("You don't have any routes at the moment",
+                                              comment: "You don't have any routes at the moment") 
+      statusLabel.text = NSLocalizedString("Wait for new assignment", comment: "Wait for new assignment") 
       routeTitleLabel.isHidden = true
       checkRouteButton.isHidden = true
       break
     }
     if let routeTitle = routeTitle {
-      yourRouteLabel.text = "Your current route"
+      yourRouteLabel.text = NSLocalizedString("Your current route", comment: "Your current route")
       routeTitleLabel.text = routeTitle
-      checkRouteButton.setTitle("Check route", for: .normal)
+      checkRouteButton.setTitle(NSLocalizedString("Check route", comment: "Check route"), for: .normal)
     }
   }
   

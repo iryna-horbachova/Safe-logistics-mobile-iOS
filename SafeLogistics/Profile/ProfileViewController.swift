@@ -2,15 +2,14 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-  let nameLabel = UILabel.makeBodyLabel()
-  let averageSpeedPerHourLabel = UILabel.makeBodyLabel()
-  let carMaxLoadLabel = UILabel.makeBodyLabel()
-  let carTypeLabel = UILabel.makeBodyLabel()
-  //let currentLocationLabel = UILabel.makeBodyLabel()
-  let experienceLabel = UILabel.makeBodyLabel()
+  let nameLabel = UILabel.makeSecondaryLabel()
+  let averageSpeedPerHourLabel = UILabel.makeSecondaryLabel()
+  let carMaxLoadLabel = UILabel.makeSecondaryLabel()
+  let carTypeLabel = UILabel.makeSecondaryLabel()
+  let experienceLabel = UILabel.makeSecondaryLabel()
   //let healthState = UILabel.makeBodyLabel()
-  let licenseTypeLabel = UILabel.makeBodyLabel()
-  let payForKmLabel = UILabel.makeBodyLabel()
+  let licenseTypeLabel = UILabel.makeSecondaryLabel()
+  let payForKmLabel = UILabel.makeSecondaryLabel()
   
   lazy var labels = [nameLabel, averageSpeedPerHourLabel, carMaxLoadLabel,
                     carTypeLabel, experienceLabel, licenseTypeLabel, payForKmLabel]
@@ -18,12 +17,14 @@ class ProfileViewController: UIViewController {
   let tableView = UITableView()
   
   let cellIdentifier = "userProfileOption"
-  let options = ["Check health", "Settings", "Log out"]
+  let options = [ NSLocalizedString("Check health", comment: "Check health"),
+                  NSLocalizedString("Settings", comment: "Settings"),
+                  NSLocalizedString("Log out", comment: "Log out") ]
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    title = "Profile"
+    title = NSLocalizedString("Profile", comment: "Profile") 
     view.backgroundColor = .systemBackground
     
     let stackView = UIStackView.makeVerticalStackView()
@@ -33,40 +34,25 @@ class ProfileViewController: UIViewController {
       stackView.addArrangedSubview($0)
     }
     
-    nameLabel.text = NSLocalizedString(
-      "NAME_LABEL",
-      value: "Name: \(APIManager.currentDriver!.user.firstName) \(APIManager.currentDriver!.user.lastName)",
-      comment: "Name label")
-    averageSpeedPerHourLabel.text = NSLocalizedString(
-      "AVERAGE_SPEED_LABEL",
-      value: "Average speed per hour: \(APIManager.currentDriver!.averageSpeedPerHour)",
-      comment: "Average speed label")
-    carMaxLoadLabel.text = NSLocalizedString(
-      "CAR_MAX_LOAD_LABEL",
-      value: "Car max load: \(APIManager.currentDriver!.carMaxLoad)",
-      comment: "Car max load label")
-    carTypeLabel.text = NSLocalizedString(
-      "CAR_TYPE_LABEL",
-      value: "Car type: \(APIManager.currentDriver!.carType)",
-      comment: "Car type label")
-    experienceLabel.text = NSLocalizedString(
-      "EXPERIENCE_LABEL",
-      value: "Experience: \(APIManager.currentDriver!.experience)",
-      comment: "Experience label")
-    licenseTypeLabel.text = NSLocalizedString(
-      "LICENSE_TYPE_LABEL",
-      value: "License type: \(APIManager.currentDriver!.licenseType)",
-      comment: "License type label")
-    payForKmLabel.text = NSLocalizedString(
-      "PAY_FOR_KM_LABEL",
-      value: "Pay for km: \(APIManager.currentDriver!.payForKm)",
-      comment: "Pay for km label")
+    nameLabel.text = NSLocalizedString("Name", comment: "Name")
+      + ": \(APIManager.currentDriver!.user.firstName) \(APIManager.currentDriver!.user.lastName)"
+    averageSpeedPerHourLabel.text = NSLocalizedString("Average speed per hour", comment: "Average speed per hour")
+      + ": \(APIManager.currentDriver!.averageSpeedPerHour)"
+    carMaxLoadLabel.text = NSLocalizedString("Car max load", comment: "Car max load")
+      + ": \(APIManager.currentDriver!.carMaxLoad)"
+    carTypeLabel.text = NSLocalizedString("Car type", comment: "Car type")
+      + ": \(APIManager.currentDriver!.carType)"
+    experienceLabel.text = NSLocalizedString("Experience", comment: "Experience")
+      + ": \(APIManager.currentDriver!.experience)"
+    licenseTypeLabel.text = NSLocalizedString("License type", comment: "License type")
+      + ": \(APIManager.currentDriver!.licenseType)"
+    payForKmLabel.text = NSLocalizedString("Pay for km", comment: "Pay for km")
+      + ": \(APIManager.currentDriver!.payForKm)"
     
     view.addSubview(stackView)
-    
-    tableView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(tableView)
     
+    tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.register(ProfileOptionTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     tableView.dataSource = self
     tableView.delegate = self
@@ -75,7 +61,6 @@ class ProfileViewController: UIViewController {
     NSLayoutConstraint.activate(
       [
         stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-        //stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 30),
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: PADDING),
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -PADDING),
         tableView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 30),
@@ -121,7 +106,7 @@ extension ProfileViewController: UITableViewDataSource {
           DispatchQueue.main.async {
             self.present(
               UIAlertController.alertWithOKAction(
-                title: "Success!",
+                title: NSLocalizedString("Success", comment: "Success"),
                 message: "You have logged out!"),
               animated: true,
               completion: nil
@@ -152,7 +137,7 @@ extension ProfileViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return "Options"
+    return NSLocalizedString("Options", comment: "Options") 
   }
   
   func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

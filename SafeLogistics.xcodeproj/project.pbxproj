@@ -21,6 +21,7 @@
 		894A93C8257D398900CE893B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894A93C7257D398900CE893B /* MapKit.framework */; };
 		894A93CB257EC01000CE893B /* HealthStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A93CA257EC01000CE893B /* HealthStateViewController.swift */; };
 		894A93CE257EC8F300CE893B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A93CD257EC8F300CE893B /* SettingsViewController.swift */; };
+		894A93D5257ED48B00CE893B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 894A93D7257ED48B00CE893B /* Localizable.strings */; };
 		89536749257AB13B00BF2E2A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89536748257AB13B00BF2E2A /* Route.swift */; };
 		8953674C257AB32500BF2E2A /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953674B257AB32500BF2E2A /* Profile.swift */; };
 		8953674F257AD60100BF2E2A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953674E257AD60100BF2E2A /* APIError.swift */; };
@@ -47,6 +48,8 @@
 		894A93C7257D398900CE893B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		894A93CA257EC01000CE893B /* HealthStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStateViewController.swift; sourceTree = "<group>"; };
 		894A93CD257EC8F300CE893B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		894A93D0257ED3E800CE893B /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		894A93D6257ED48B00CE893B /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		89536748257AB13B00BF2E2A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8953674B257AB32500BF2E2A /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		8953674E257AD60100BF2E2A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		893FFE07255B1766009A61ED = {
 			isa = PBXGroup;
 			children = (
+				894A93D7257ED48B00CE893B /* Localizable.strings */,
 				893FFE12255B1766009A61ED /* SafeLogistics */,
 				893FFE11255B1766009A61ED /* Products */,
 				894A93C6257D398800CE893B /* Frameworks */,
@@ -202,6 +206,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = 893FFE07255B1766009A61ED;
 			productRefGroup = 893FFE11255B1766009A61ED /* Products */;
@@ -219,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				893FFE20255B1769009A61ED /* LaunchScreen.storyboard in Resources */,
+				894A93D5257ED48B00CE893B /* Localizable.strings in Resources */,
 				893FFE1D255B1769009A61ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,8 +264,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				893FFE1F255B1769009A61ED /* Base */,
+				894A93D0257ED3E800CE893B /* uk */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		894A93D7257ED48B00CE893B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				894A93D6257ED48B00CE893B /* uk */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -269,6 +284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -330,6 +346,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -1,0 +1,58 @@
+"FORGOT_PASSWORD" = "Забули пароль?";
+"EMAIL_TEXTFIELD" = "Електрона пошта";
+"PASSWORD_TEXTFIELD" = "Пароль";
+"Continue" = "Продовжити";
+
+"Routes" = "Маршрути";
+"Profile" = "Профіль";
+"Current route" = "Поточний маршрут";
+"Completed routes" = "Виконані маршрути";
+"Your current route" = "Ваш поточний маршрут";
+"Check route" = "Детальніше";
+"Health state" = "Стан здоров'я";
+"Measure health state" = "Виміряти стан здоров'я";
+"Language" = "Мова";
+"Check health" = "Перевірити стан здоров'я";
+"Settings" = "Параметри";
+"Log out" = "Вийти з системи";
+"Options" = "Опції";
+
+"Name" = "Ім'я";
+"Car max load" = "Макс. навантаженная авто";
+"Average speed per hour" = "Середня швидкість";
+"Car type" = "Тип авто";
+"Experience" = "Досвід";
+"License type" = "Тип посвідчення водія";
+"Pay for km" = "Плата за км";
+
+"Title" = "Назва";
+"Priority" = "Пріорітет";
+"Load type" = "Тип перевезення";
+"Load quantity" = "Кількість";
+"Start location" = "Початкова локація";
+"End location" = "Кінцева локація";
+"Min experience" = "Мін. необхідний досвід";
+"Min health" = "Мін. необхідний показник здоров'я";
+"Distance" = "Відстань";
+"Status" = "Статус";
+
+"Success" = "Успіх";
+"Status: Not started" = "Статус: не розпочато";
+"Status: In progress" = "Статус: в процесі";
+"You don't have any routes at the moment" = "Ви не маєте поточного маршруту";
+"Wait for new assignment" = "Чекайте на нове призначення";
+"Your current route" = "Ваш поточний маршрут";
+
+"You measured your health state!" = "Ви поміряли показники вашого здоров'я";
+"Your information was updated" = "Ваша інформація була оновлена";
+
+"Save" = "Зберегти";
+
+"Heart rate" = "Пульс";
+"Body temperature" = "Температура тіла";
+"Respiration rate per minute" = "Ритм дихання на хвилину";
+"Blood pressure systolic" = "систолічний кров'яний тиск";
+"Blood pressure diastolic" = "діастолічний кров'яний тиск";
+"Blood oxygen" = "Рівень кисню в крові";
+"Blood alcohol content" = "Вміст алкоголю в крові";
+"Blood drugs content" = "Вміст наркотичних речовин в крові";

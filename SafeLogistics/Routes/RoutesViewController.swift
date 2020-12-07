@@ -24,7 +24,7 @@ class RoutesViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    title = "Routes"
+    title = NSLocalizedString("Routes", comment: "Routes") 
     view.backgroundColor = .systemBackground
     
     // API management
@@ -105,7 +105,7 @@ extension RoutesViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return "Completed routes"
+    return NSLocalizedString("Completed routes", comment: "Completed routes") 
   }
   
   func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

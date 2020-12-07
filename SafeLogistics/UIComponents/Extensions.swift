@@ -40,7 +40,7 @@ extension UIButton {
   static func makeContinueButton() -> UIButton {
     let button = UIButton()
     button.backgroundColor = .mainTheme
-    button.setTitle("Continue", for: .normal)
+    button.setTitle(NSLocalizedString("Continue", comment: "Continue button"), for: .normal)
     button.titleLabel?.font =  .boldSystemFont(ofSize: 25)
     button.layer.cornerRadius = CORNER_RADIUS
     button.translatesAutoresizingMaskIntoConstraints = false
