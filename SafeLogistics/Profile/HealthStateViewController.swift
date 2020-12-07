@@ -31,6 +31,7 @@ class HealthStateViewController: UIViewController {
     view.backgroundColor = .systemBackground
     title = "Health state"
     setHealthStateLabel()
+    measureHealthButton.addTarget(self, action: #selector(measureHealthButtonClicked), for: .touchUpInside)
     
     let stackView = UIStackView.makeVerticalStackView()
     stackView.spacing = 3
@@ -40,8 +41,6 @@ class HealthStateViewController: UIViewController {
     }
     stackView.addArrangedSubview(measureHealthButton)
     
-    measureHealthButton.addTarget(self, action: #selector(measureHealthButtonClicked), for: .touchUpInside)
-    
     view.addSubview(stackView)
     
     NSLayoutConstraint.activate(
@@ -50,7 +49,7 @@ class HealthStateViewController: UIViewController {
         stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: PADDING),
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -PADDING),
-        ]
+      ]
     )
 
   }
@@ -91,7 +90,7 @@ class HealthStateViewController: UIViewController {
   }
   
   @objc private func measureHealthButtonClicked(_ sender: UIButton!) {
-    self.present(
+    present(
       UIAlertController.alertWithOKAction(
         title: "You measured your health state!",
         message: "The data in your profile has been updated"),
