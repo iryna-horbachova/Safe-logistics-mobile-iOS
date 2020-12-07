@@ -19,6 +19,7 @@
 		894A93C1257D1E0F00CE893B /* CurrentDesignatedRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A93C0257D1E0F00CE893B /* CurrentDesignatedRouteView.swift */; };
 		894A93C4257D369700CE893B /* CurrentRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A93C3257D369700CE893B /* CurrentRouteViewController.swift */; };
 		894A93C8257D398900CE893B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894A93C7257D398900CE893B /* MapKit.framework */; };
+		894A93CB257EC01000CE893B /* HealthStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A93CA257EC01000CE893B /* HealthStateViewController.swift */; };
 		89536749257AB13B00BF2E2A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89536748257AB13B00BF2E2A /* Route.swift */; };
 		8953674C257AB32500BF2E2A /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953674B257AB32500BF2E2A /* Profile.swift */; };
 		8953674F257AD60100BF2E2A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953674E257AD60100BF2E2A /* APIError.swift */; };
@@ -43,6 +44,7 @@
 		894A93C0257D1E0F00CE893B /* CurrentDesignatedRouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDesignatedRouteView.swift; sourceTree = "<group>"; };
 		894A93C3257D369700CE893B /* CurrentRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentRouteViewController.swift; sourceTree = "<group>"; };
 		894A93C7257D398900CE893B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		894A93CA257EC01000CE893B /* HealthStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStateViewController.swift; sourceTree = "<group>"; };
 		89536748257AB13B00BF2E2A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8953674B257AB32500BF2E2A /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		8953674E257AD60100BF2E2A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				8953674B257AB32500BF2E2A /* Profile.swift */,
 				89536751257AD8D400BF2E2A /* SignInViewController.swift */,
 				894A93BA257BB60900CE893B /* ProfileOptionTableViewCell.swift */,
+				894A93CA257EC01000CE893B /* HealthStateViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				89536756257AD91600BF2E2A /* Extensions.swift in Sources */,
 				894A93BE257D12A100CE893B /* RouteTableViewCell.swift in Sources */,
 				8953674F257AD60100BF2E2A /* APIError.swift in Sources */,
+				894A93CB257EC01000CE893B /* HealthStateViewController.swift in Sources */,
 				89536759257AD97800BF2E2A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

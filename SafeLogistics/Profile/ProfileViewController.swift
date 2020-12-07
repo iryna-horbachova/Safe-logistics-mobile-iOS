@@ -108,31 +108,37 @@ extension ProfileViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch indexPath.row {
-      case 2:
-        APIManager.shared.logout { [weak self] error in
-          guard let self = self else { return }
-          if error == nil {
-            DispatchQueue.main.async {
-              self.present(
-                UIAlertController.alertWithOKAction(
-                  title: "Success!",
-                  message: "You have logged out!"),
-                animated: true,
-                completion: nil
-              )
-            }
-          } else {
-            DispatchQueue.main.async {
-              self.present(
-                UIAlertController.alertWithOKAction(
-                  title: "Unable to log you out!",
-                  message: "Please try again later"),
-                animated: true,
-                completion: nil)
-              
-            }
+    case 0:
+      navigationController?.pushViewController(HealthStateViewController(), animated: true)
+      break
+    case 2:
+      APIManager.shared.logout { [weak self] error in
+        guard let self = self else { return }
+        if error == nil {
+          DispatchQueue.main.async {
+            self.present(
+              UIAlertController.alertWithOKAction(
+                title: "Success!",
+                message: "You have logged out!"),
+              animated: true,
+              completion: nil
+            )
+          }
+        } else {
+          DispatchQueue.main.async {
+            self.present(
+              UIAlertController.alertWithOKAction(
+                title: "Unable to log you out!",
+                message: "Please try again later"),
+              animated: true,
+              completion: nil)
+            
           }
         }
+        DispatchQueue.main.async {
+          self.view.window?.rootViewController = SignInViewController()
+        }
+      }
     default:
       print("not implemented :)))")
     }

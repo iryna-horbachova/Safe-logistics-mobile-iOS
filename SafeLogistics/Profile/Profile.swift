@@ -28,9 +28,9 @@ struct HealthState: Codable {
   let bloodOxygenLevel: Int
   
   let bloodAlcoholContent: Double
-  let drugsAlcoholContent: Double
+  let bloodDrugsContent: Double
   
-  let datetime: String
+  let datetime: String?
 }
 
 struct Token: Codable {
@@ -38,4 +38,3 @@ struct Token: Codable {
   let userId: Int
   let token: String
 }
-
