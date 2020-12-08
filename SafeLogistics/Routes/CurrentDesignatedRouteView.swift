@@ -37,7 +37,7 @@ class CurrentDesignatedRouteView: UIView {
   }
   
   private func updateView() {
-    switch self.status {
+    switch status {
     case "N":
       statusLabel.text = NSLocalizedString("Status: Not started", comment: "Status: Not started") 
       break

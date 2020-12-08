@@ -74,7 +74,12 @@ class RoutesViewController: UIViewController {
   }
   
   @objc private func showCurrentRouteVC(sender: UIButton!) {
-    navigationController?.pushViewController(CurrentRouteViewController(), animated: true)
+    if let designatedRoute = currentDesignatedRoute {
+      let currentRouteInfoView = CurrentRouteInfoView(designatedRoute: designatedRoute)
+      let currentRouteVC = CurrentRouteViewController()
+      currentRouteVC.routeInfoView = currentRouteInfoView
+      navigationController?.pushViewController(currentRouteVC, animated: true)
+    }
   }
 }
 

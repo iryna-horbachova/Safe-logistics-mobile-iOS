@@ -4,7 +4,7 @@ import MapKit
 class CurrentRouteViewController: UIViewController {
 
   let mapView = MKMapView()
-  let routeInfoView = CurrentRouteInfoView()
+  var routeInfoView: CurrentRouteInfoView!
   
   var routeViewIsDisplayed = true
   lazy var routeInfoViewIsVisibleConstraint = routeInfoView.heightAnchor.constraint(equalToConstant: 200)
@@ -120,9 +120,11 @@ class CurrentRouteViewController: UIViewController {
     if routeViewIsDisplayed {
       routeInfoViewIsVisibleConstraint.isActive = false
       routeInfoViewIsNotVisibleConstraint.isActive = true
+      routeInfoView.changeRouteStatusButton.isHidden = true
     } else {
       routeInfoViewIsVisibleConstraint.isActive = true
       routeInfoViewIsNotVisibleConstraint.isActive = false
+      routeInfoView.changeRouteStatusButton.isHidden = false
     }
     routeViewIsDisplayed = !routeViewIsDisplayed
     UIView.animate(withDuration: 0.5) {
