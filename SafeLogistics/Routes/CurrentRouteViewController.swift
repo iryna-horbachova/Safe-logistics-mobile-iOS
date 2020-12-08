@@ -4,14 +4,22 @@ import MapKit
 class CurrentRouteViewController: UIViewController {
 
   let mapView = MKMapView()
+  let routeInfoView = CurrentRouteInfoView()
+  
+  var routeViewIsDisplayed = true
+  lazy var routeInfoViewIsVisibleConstraint = routeInfoView.heightAnchor.constraint(equalToConstant: 200)
+  lazy var routeInfoViewIsNotVisibleConstraint = routeInfoView.heightAnchor.constraint(equalToConstant: 0)
   
   override func viewDidLoad() {
     super.viewDidLoad()
     title = NSLocalizedString("Current route", comment: "Current route")
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Details", comment: "details"),
+                                                        style: .plain, target: self,
+                                                        action: #selector(detailsButtonClicked))
     
+    
+    // Handling maps
     mapView.delegate = self
-    mapView.translatesAutoresizingMaskIntoConstraints = false
-    view.addSubview(mapView)
     
     //let startPointAnnotation = MKPointAnnotation()
     //startPointAnnotation.coordinate = CLLocationCoordinate2D(latitude: 49.993821, longitude: 36.246313)
@@ -21,14 +29,33 @@ class CurrentRouteViewController: UIViewController {
     showRouteOnMap(pickupCoordinate: startPointCoordinate, destinationCoordinate: endPointCoordinate)
     //mapView.addAnnotation(startPointAnnotation)
     
+    // UI Handling
+    mapView.translatesAutoresizingMaskIntoConstraints = false
+    routeInfoView.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(mapView)
+    view.addSubview(routeInfoView)
+    
+    routeInfoViewIsVisibleConstraint.isActive = true
     NSLayoutConstraint.activate(
       [
+        routeInfoView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        routeInfoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        routeInfoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        //routeInfoView.heightAnchor.constraint(equalToConstant: 200),
         mapView.topAnchor.constraint(equalTo: view.topAnchor),
         mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
         mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        mapView.bottomAnchor.constraint(equalTo: routeInfoView.topAnchor),
       ]
     )
+    
+    let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
+    swipeUp.direction = .up
+    view.addGestureRecognizer(swipeUp)
+
+    let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
+    swipeDown.direction = .down
+    view.addGestureRecognizer(swipeDown)
   }
   
   func showRouteOnMap(pickupCoordinate: CLLocationCoordinate2D, destinationCoordinate: CLLocationCoordinate2D) {
@@ -51,7 +78,7 @@ class CurrentRouteViewController: UIViewController {
       destinationAnnotation.coordinate = location.coordinate
     }
     
-    self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
+    mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
     
     let directionRequest = MKDirections.Request()
     directionRequest.source = sourceMapItem
@@ -77,6 +104,29 @@ class CurrentRouteViewController: UIViewController {
       
       let rect = route.polyline.boundingMapRect
       self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+    }
+  }
+  
+  @objc private func handleSwipeGesture(gesture: UISwipeGestureRecognizer) {
+    if gesture.direction == .up || gesture.direction == .down {
+      handleRouteInfoOnDisplay()
+    }
+  }
+  @objc private func detailsButtonClicked() {
+    handleRouteInfoOnDisplay()
+  }
+  
+  private func handleRouteInfoOnDisplay() {
+    if routeViewIsDisplayed {
+      routeInfoViewIsVisibleConstraint.isActive = false
+      routeInfoViewIsNotVisibleConstraint.isActive = true
+    } else {
+      routeInfoViewIsVisibleConstraint.isActive = true
+      routeInfoViewIsNotVisibleConstraint.isActive = false
+    }
+    routeViewIsDisplayed = !routeViewIsDisplayed
+    UIView.animate(withDuration: 0.5) {
+      self.view.layoutIfNeeded()
     }
   }
 }

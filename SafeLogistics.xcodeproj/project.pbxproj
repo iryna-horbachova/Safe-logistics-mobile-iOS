@@ -22,6 +22,7 @@
 		894A93CB257EC01000CE893B /* HealthStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A93CA257EC01000CE893B /* HealthStateViewController.swift */; };
 		894A93CE257EC8F300CE893B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A93CD257EC8F300CE893B /* SettingsViewController.swift */; };
 		894A93D5257ED48B00CE893B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 894A93D7257ED48B00CE893B /* Localizable.strings */; };
+		894A93DA257F9F5300CE893B /* CurrentRouteInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A93D9257F9F5300CE893B /* CurrentRouteInfoView.swift */; };
 		89536749257AB13B00BF2E2A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89536748257AB13B00BF2E2A /* Route.swift */; };
 		8953674C257AB32500BF2E2A /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953674B257AB32500BF2E2A /* Profile.swift */; };
 		8953674F257AD60100BF2E2A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8953674E257AD60100BF2E2A /* APIError.swift */; };
@@ -50,6 +51,7 @@
 		894A93CD257EC8F300CE893B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		894A93D0257ED3E800CE893B /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		894A93D6257ED48B00CE893B /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		894A93D9257F9F5300CE893B /* CurrentRouteInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentRouteInfoView.swift; sourceTree = "<group>"; };
 		89536748257AB13B00BF2E2A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8953674B257AB32500BF2E2A /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		8953674E257AD60100BF2E2A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				894A93BD257D12A100CE893B /* RouteTableViewCell.swift */,
 				894A93C0257D1E0F00CE893B /* CurrentDesignatedRouteView.swift */,
 				894A93C3257D369700CE893B /* CurrentRouteViewController.swift */,
+				894A93D9257F9F5300CE893B /* CurrentRouteInfoView.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				893FFE30255B17ED009A61ED /* RoutesViewController.swift in Sources */,
 				893FFE2D255B17D9009A61ED /* ProfileViewController.swift in Sources */,
 				894A93C4257D369700CE893B /* CurrentRouteViewController.swift in Sources */,
+				894A93DA257F9F5300CE893B /* CurrentRouteInfoView.swift in Sources */,
 				89536749257AB13B00BF2E2A /* Route.swift in Sources */,
 				896F58B5257A6B1700785DA8 /* APIManager.swift in Sources */,
 				89536752257AD8D400BF2E2A /* SignInViewController.swift in Sources */,
