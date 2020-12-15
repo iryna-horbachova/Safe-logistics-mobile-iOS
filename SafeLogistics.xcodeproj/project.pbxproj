@@ -29,6 +29,7 @@
 		89536752257AD8D400BF2E2A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89536751257AD8D400BF2E2A /* SignInViewController.swift */; };
 		89536756257AD91600BF2E2A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89536755257AD91600BF2E2A /* Extensions.swift */; };
 		89536759257AD97800BF2E2A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89536758257AD97800BF2E2A /* Constants.swift */; };
+		8958ED732589366600D42F0C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8958ED722589366600D42F0C /* EditProfileViewController.swift */; };
 		896F58B5257A6B1700785DA8 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F58B4257A6B1700785DA8 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		89536751257AD8D400BF2E2A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		89536755257AD91600BF2E2A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		89536758257AD97800BF2E2A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8958ED722589366600D42F0C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		896F58B4257A6B1700785DA8 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 				894A93BA257BB60900CE893B /* ProfileOptionTableViewCell.swift */,
 				894A93CA257EC01000CE893B /* HealthStateViewController.swift */,
 				894A93CD257EC8F300CE893B /* SettingsViewController.swift */,
+				8958ED722589366600D42F0C /* EditProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				894A93BB257BB60900CE893B /* ProfileOptionTableViewCell.swift in Sources */,
 				893FFE30255B17ED009A61ED /* RoutesViewController.swift in Sources */,
 				893FFE2D255B17D9009A61ED /* ProfileViewController.swift in Sources */,
+				8958ED732589366600D42F0C /* EditProfileViewController.swift in Sources */,
 				894A93C4257D369700CE893B /* CurrentRouteViewController.swift in Sources */,
 				894A93DA257F9F5300CE893B /* CurrentRouteInfoView.swift in Sources */,
 				89536749257AB13B00BF2E2A /* Route.swift in Sources */,

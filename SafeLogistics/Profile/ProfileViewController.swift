@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
   
   let cellIdentifier = "userProfileOption"
   let options = [ NSLocalizedString("Check health", comment: "Check health"),
-                  NSLocalizedString("Settings", comment: "Settings"),
+                  NSLocalizedString("Edit profile", comment: "Settings"),
                   NSLocalizedString("Log out", comment: "Log out") ]
   
   override func viewDidLoad() {
@@ -97,7 +97,7 @@ extension ProfileViewController: UITableViewDataSource {
       navigationController?.pushViewController(HealthStateViewController(), animated: true)
       break
     case 1:
-      navigationController?.pushViewController(SettingsViewController(), animated: true)
+      navigationController?.pushViewController(EditProfileViewController(), animated: true)
       break
     case 2:
       APIManager.shared.logout { [weak self] error in

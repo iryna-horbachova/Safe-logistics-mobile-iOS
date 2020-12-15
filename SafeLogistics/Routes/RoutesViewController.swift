@@ -13,6 +13,8 @@ class RoutesViewController: UIViewController {
       if currentDesignatedRoute != nil {
         currentDesignatedRouteView.status = currentDesignatedRoute!.status
         currentDesignatedRouteView.routeTitle = currentDesignatedRoute!.route.title
+      } else {
+        currentDesignatedRouteView.status = "F"
       }
     }
   }
@@ -77,6 +79,7 @@ class RoutesViewController: UIViewController {
     if let designatedRoute = currentDesignatedRoute {
       let currentRouteInfoView = CurrentRouteInfoView(designatedRoute: designatedRoute)
       let currentRouteVC = CurrentRouteViewController()
+      currentRouteVC.currentRoute = designatedRoute
       currentRouteVC.routeInfoView = currentRouteInfoView
       navigationController?.pushViewController(currentRouteVC, animated: true)
     }

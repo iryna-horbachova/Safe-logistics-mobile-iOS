@@ -3,6 +3,7 @@ import MapKit
 
 class CurrentRouteViewController: UIViewController {
 
+  var currentRoute: DesignatedRoute!
   let mapView = MKMapView()
   var routeInfoView: CurrentRouteInfoView!
   
@@ -20,11 +21,23 @@ class CurrentRouteViewController: UIViewController {
     
     // Handling maps
     mapView.delegate = self
+    var startString =  currentRoute.route.startLocation.components(separatedBy: " ")
+    let startLocationLon = Double(startString[1].dropFirst())
+    let startLocationLat = Double(startString[2].dropLast())
     
+    var endString =  currentRoute.route.startLocation.components(separatedBy: " ")
+    let endLocationLon = Double(endString[1].dropFirst())
+    let endLocationLat = Double(endString[2].dropLast())
+    print(endString)
+    print("end")
+    print(endLocationLon)
+    print(endLocationLat)
+
+    // "SRID=4326;POINT (0.003528804219372761 0.01316783590369009)"
     //let startPointAnnotation = MKPointAnnotation()
     //startPointAnnotation.coordinate = CLLocationCoordinate2D(latitude: 49.993821, longitude: 36.246313)
-    let startPointCoordinate = CLLocationCoordinate2D(latitude: 49.993821, longitude: 36.246313)
-    let endPointCoordinate = CLLocationCoordinate2D(latitude: 48.993821, longitude: 35.246313)
+    let startPointCoordinate = CLLocationCoordinate2D(latitude: startLocationLat!, longitude: startLocationLon!)
+    let endPointCoordinate = CLLocationCoordinate2D(latitude: endLocationLat!, longitude: endLocationLon!)
     
     showRouteOnMap(pickupCoordinate: startPointCoordinate, destinationCoordinate: endPointCoordinate)
     //mapView.addAnnotation(startPointAnnotation)

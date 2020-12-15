@@ -50,6 +50,7 @@ class CurrentDesignatedRouteView: UIView {
       statusLabel.text = NSLocalizedString("Wait for new assignment", comment: "Wait for new assignment") 
       routeTitleLabel.isHidden = true
       checkRouteButton.isHidden = true
+    
       break
     }
     if let routeTitle = routeTitle {
@@ -60,7 +61,9 @@ class CurrentDesignatedRouteView: UIView {
   }
   
   private func configure() {
-    backgroundColor = UIColor(patternImage: UIImage(named: "route")!)
+ 
+    //backgroundColor = UIColor(patternImage: UIImage(named: "route")!)
+    self.layer.contents = UIImage(named: "route")!.cgImage
     //backgroundColor = .systemBackground
     addSubview(statusLabel)
     addSubview(routeTitleLabel)
